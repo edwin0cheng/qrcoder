@@ -1,3 +1,4 @@
 #!/bin/bash
 
-zip -r qrcoder.zip . -x '*.git*'
+rm -f qrcoder.zip
+zip -r qrcoder.zip . -x '*.git*' -x 'build.sh'
