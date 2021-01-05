@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
     "name": "Qrcoder",
-    "version": "1.0",
+    "version": "1.0.1",
     "description": "Simple QR Code Generator",
     "homepage_url": "https://github.com/edwin0cheng/qrcoder",
     "icons": {
