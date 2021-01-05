@@ -239,20 +239,23 @@ var QRCode;
 			var nCount = oQRCode.getModuleCount();
 			var nWidth = Math.floor(_htOption.width / nCount);
 			var nHeight = Math.floor(_htOption.height / nCount);
-			var aHTML = ['<table style="border:0;border-collapse:collapse;">'];
+			
+			var table = document.createElement('table');
+			table.style.cssText = 'border:0;border-collapse:collapse;';
 			
 			for (var row = 0; row < nCount; row++) {
-				aHTML.push('<tr>');
+				var tr = document.createElement('tr');				
 				
 				for (var col = 0; col < nCount; col++) {
-					aHTML.push('<td style="border:0;border-collapse:collapse;padding:0;margin:0;width:' + nWidth + 'px;height:' + nHeight + 'px;background-color:' + (oQRCode.isDark(row, col) ? _htOption.colorDark : _htOption.colorLight) + ';"></td>');
+					var td = document.createElement('td');
+					td.style.cssText = 'border:0;border-collapse:collapse;padding:0;margin:0;width:' + nWidth + 'px;height:' + nHeight + 'px;background-color:' + (oQRCode.isDark(row, col) ? _htOption.colorDark : _htOption.colorLight) + ';';
+					tr.appendChild(td);
 				}
 				
-				aHTML.push('</tr>');
+				table.appendChild(tr);
 			}
 			
-			aHTML.push('</table>');
-			_el.innerHTML = aHTML.join('');
+			_el.appendChild(table);
 			
 			// Fix the margin values as real size.
 			var elTable = _el.childNodes[0];
